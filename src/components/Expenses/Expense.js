@@ -2,13 +2,13 @@ import React,{useState} from "react";
 
 import ExpenseFilter from "./ExpenseFilter"
 
-
 import ExpsenseList from "./ExpenseList";
 
 import './Expense.css'
 
-
 import Card from '../UI/Card'
+
+import ExpenseChart from "../Chart/ExpenseChart";
 
 function Expenses(props){
     const [filteredYear,setFilteredYear] = useState('2023')
@@ -26,7 +26,8 @@ function Expenses(props){
             <ExpenseFilter 
               selected={filteredYear}
               onChangeFilter={filterChangeHandler}
-            />
+            /> 
+            <ExpenseChart expenses = {filteredExpenses} />
            <ExpsenseList items={filteredExpenses}/>
             {/* {filteredExpenses.length===1 && <p>Only One expnse.Please add more<p/>} */}
         </Card>
